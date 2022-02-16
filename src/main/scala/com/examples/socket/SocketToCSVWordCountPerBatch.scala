@@ -1,10 +1,9 @@
-package com.oracle.socket
+package com.examples.socket
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.sql.streaming.Trigger
 
-object SocketToCSVWordCountAllBatches {
-
+object SocketToCSVWordCountPerBatch {
 
   def main(args :Array[String]): Unit = {
     println("Heello Heello !!")
@@ -36,5 +35,4 @@ object SocketToCSVWordCountAllBatches {
       .outputMode("complete")
       .foreachBatch(myFunc _).start().awaitTermination()
   }
-
 }

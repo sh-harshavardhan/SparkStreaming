@@ -1,4 +1,4 @@
-package com.oracle.socket
+package com.examples.socket
 
 import org.apache.spark.sql.SparkSession
 
