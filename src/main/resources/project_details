@@ -1,3 +1,27 @@
 <scala.version>2.12.12</scala.version>
 <spark.version>2.4.8</spark.version>
 <java.jdk.version>11.0.13</java.jdk.version>
+<kafka.version>3.1.0</java.jdk.version>
+
+Download the winutils.exe from following location for hadoop 2.7.1
+https://github.com/steveloughran/winutils/tree/master/hadoop-2.7.1/bin
+
+HADOOP_HOME=C:\Users\saitalla.I-FLEX\Downloads\winutils
+JAVA_HOME=C:\Users\saitalla.I-FLEX\Downloads\jdk-11.0.13_windows-x64_bin\jdk-11.0.13
+Path=%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%JAVA_HOME%\bin;C:\Users\saitalla.I-FLEX\Downloads\PortableGit\bin;
+
+#Commands
+cd C:\Users\saitalla.I-FLEX\Downloads\kafka
+## Start zookeeper :
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+## Start kafka :
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+## Create topic :
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic emp-topic --replication-factor 1 --partitions 1
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+## List topics :
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+## Produce in console :
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic initaltopic
+## Consume in console :
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 —topic initaltopic --from-beginning  --partition 0
